@@ -51,8 +51,8 @@ public class MyMatrix{
 	// Füllt das Array mit aufsteigenden Werten
 	// beginnent bei k
 	public void fill1(int k){
-		for(int x = 0;  x<n;x++){
-			for (int i=0;i<m;i++){
+		for(int x = 0;  x<m;x++){
+			for (int i=0;i<n;i++){
 				M[x][i] = (k + i)*(k + i);
 			}
 		}
@@ -124,8 +124,8 @@ public class MyMatrix{
 	// Anzahl der Vorkommnisse von k im Array
 	public int countEqual(int k){
 		int c = 0;
-		for(int x = 0;x<n;x++)
-		for (int i=0;i<m;i++){
+		for(int x = 0;x<m;x++)
+		for (int i=0;i<n;i++){
 			if (M[x][i]==k) c++;
 		}
 		return c;
@@ -138,8 +138,8 @@ public class MyMatrix{
 			bool=false;
 		}
 		else{
-			for(int x = 0;x<n;x++)
-				for (int i=0;i<m;i++){
+			for(int x = 0;x<m;x++)
+				for (int i=0;i<n;i++){
 					if (M[x][i]!=M[x][i]){//Se a linha tem um valor diferente da coluna
 						bool=false;// não é simétrica.
 						break;}
@@ -177,9 +177,9 @@ public class MyMatrix{
 		System.out.println();
 		
 		System.out.println("MyMatrix(20)");
-		MyMatrix Q = new MyMatrix(20);
+		MyMatrix Q = new MyMatrix(2,3);
 		System.out.println("Q.fill2(5,3)");
-		Q.fill2(5,3);
+		Q.fill1(0);
 		Q.matrixOut();
 		
 		MyMatrix matrixTransp = Q.reverse();
