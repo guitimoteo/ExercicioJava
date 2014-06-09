@@ -131,11 +131,19 @@ public class MyMatrix{
 		return c;
 	}
 	
-	public boolean elem(int k){
-		boolean bool = false; 
-		for(int x = 0;x<n;x++)
-		for (int i=0;i<m;i++){
-			if (M[x][i]==k){bool=true;break;}
+	public boolean checkSymm(){
+		boolean bool = true;
+		// Se o tamanho da coluna e da linha forem diferentes, não é simétrica
+		if (M.length!=M[0].length){
+			bool=false;
+		}
+		else{
+			for(int x = 0;x<n;x++)
+				for (int i=0;i<m;i++){
+					if (M[x][i]!=M[x][i]){//Se a linha tem um valor diferente da coluna
+						bool=false;// não é simétrica.
+						break;}
+				}
 		}
 		return bool;
 	}	
@@ -183,14 +191,10 @@ public class MyMatrix{
 		int numEqu = Q.countEqual(6);
 		System.out.println(numEqu);
 		
-		System.out.println("Q.elem(7)");
+		System.out.println("Q.checkSymm()");
 		
-		System.out.println(Q.elem(7));
-		
-		System.out.println("Q.elem(10)");
-		
-		System.out.println(Q.elem(10));
-		
+		System.out.println(Q.checkSymm());
+						
 		System.out.println();
 		System.out.println("MyMatrix(5)");
 		MyMatrix R = new MyMatrix(5);
