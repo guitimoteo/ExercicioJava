@@ -51,9 +51,15 @@ public class MyMatrix{
 	// Füllt das Array mit aufsteigenden Werten
 	// beginnent bei k
 	public void fill1(int k){
+		int c = k -1;
 		for(int x = 0;  x<m;x++){
 			for (int i=0;i<n;i++){
-				M[x][i] = (k + i)*(k + i);
+				M[x][i] = k;
+				if(c>0){
+					c--;
+				}else{
+					c = k++;	
+				}
 			}
 		}
 	}
@@ -140,13 +146,23 @@ public class MyMatrix{
 		else{
 			for(int x = 0;x<m;x++)
 				for (int i=0;i<n;i++){
-					if (M[x][i]!=M[x][i]){//Se a linha tem um valor diferente da coluna
+					if (M[x][i]!=M[i][x]){//Se a linha tem um valor diferente da coluna
 						bool=false;// não é simétrica.
 						break;}
 				}
 		}
 		return bool;
 	}	
+	
+	
+	public int countSymm() {
+		int c = 0;
+		for (int x = 0; x < m; x++) 
+			for (int i = 0; i < n; i++) { 
+				if (M[x][i]==M[i][x]) c++; // c erhoehen, wenn die Eintraege gleich sind } return c; }
+			}
+		return c;
+	}
 	 
 	// {1,2,3,4} -> {4,3,2,1} : Acredito que é a tranposição
 	public MyMatrix reverse(){
@@ -176,10 +192,10 @@ public class MyMatrix{
 		
 		System.out.println();
 		
-		System.out.println("MyMatrix(20)");
-		MyMatrix Q = new MyMatrix(2,3);
-		System.out.println("Q.fill2(5,3)");
-		Q.fill1(0);
+		System.out.println("MyMatrix(2)");
+		MyMatrix Q = new MyMatrix(2);
+		System.out.println("Q.fill2(0,0)");
+		Q.fill2(0,0);
 		Q.matrixOut();
 		
 		MyMatrix matrixTransp = Q.reverse();
