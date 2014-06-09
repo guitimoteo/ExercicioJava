@@ -30,17 +30,21 @@ public class MyMatrix{
 		}
 	}
 
-	/*
-	public int[][] transpose(){ 
+	
+	public MyMatrix transpose(){
+		int i = m;// ou M[0].lenght();
+		int j = n;// ou M.lenght();
 		MyMatrix T = new MyMatrix (i, j); 
-		for (int i=0;i<n; i++){
-			T.M[i] = M[j]; 
-			for (int j=0;j<n; j++)
-			{ T.M[j] = M[i];
+		for (int a=0;i<n; a++){
+//			T.M[i] = M[j]; // se a matriz é bidimensional, não tem como pegar só uma dimensão e tratar 
+//			O que vc pode fazer é colocar a matriz inteira, como abaixo
+			for (int b=0;b<n; b++){
+				T.M[b][a] = M[a][b];
 			}
 		}
+		return T;//Retornando a matriz 'T'
 	}
-	*/
+	
 	
 	// Methoden:
 	
