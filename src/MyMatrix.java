@@ -139,7 +139,7 @@ public class MyMatrix{
 		}
 		return bool;
 	}	
-	
+	 
 	// {1,2,3,4} -> {4,3,2,1} : Acredito que é a tranposição
 	public MyMatrix reverse(){
 		MyMatrix T = new MyMatrix(n,m);//O inverso da matriz M[m][n] é M[n][m] não?
