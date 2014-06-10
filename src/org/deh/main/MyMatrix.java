@@ -32,7 +32,6 @@ public class MyMatrix {
 
 	public MyMatrix transpose(){
 		MyMatrix T = new MyMatrix(n,m);
-		T.MatrixOut();
 		for(int x = 0;x<m;x++)
 			for (int i=0; i<n; i++){
 				T.M[i][x] = M[x][i];
@@ -49,6 +48,8 @@ public class MyMatrix {
 			System.out.println();
 		}
 	}
+	
+
 
 	// Aufgabe 2 b)
 	// fill1: f�llt die Matrix mit k; k*k; (k+1)*(k+1)...usw
@@ -115,6 +116,40 @@ public class MyMatrix {
 		return bool;
 	}
 
+	public int countDiffCols() {
+		int count =0;
+		MyMatrix t = this.transpose();
+		for(int x=0;x<t.M.length;x++){
+			for(int y=x+1;y<t.M.length;y++){
+				if(this.isEqualCols(t.M[x], t.M[y])==true)
+					count++;
+			}
+		}
+		return count;
+	}
+	
+	public int maxNumberEqualCols() {
+		int count =0;
+		MyMatrix t = this.transpose();
+		for(int x=0;x<t.M.length;x++){
+			for(int y=x+1;y<t.M.length;y++){
+				if(this.isEqualCols(t.M[x], t.M[y])==false)
+					count++;
+			}
+		}
+		return count;
+	}
+	
+
+	public boolean isEqualCols(int[] x, int[] y){ 
+		for(int i=0; i<x.length;i++){
+			if(x[i]!=y[i])
+				return false;
+		}
+		return true;
+	}
+
+	
 	public static void main(String[] args) {
 		test();
 	}
@@ -167,20 +202,24 @@ public class MyMatrix {
 		Q.fill1(0);
 		Q.checkSymm();
 		Q.countSymm();
-		System.out.println("M.fill1(0); checkSymm; countSymm");
+		System.out.println("M.fill1(0); checkSymm; countSymm; countDiffCols(); maxNumberEqualCols");
 		Q.MatrixOut();
 		System.out.println(Q.checkSymm());
 		System.out.println(Q.countSymm());
-		System.out.println();		
+		System.out.println(Q.countDiffCols());
+		System.out.println(Q.maxNumberEqualCols());
+		System.out.println();
 		
 		MyMatrix R = new MyMatrix (4);
 		R.fill2 (1, 2);
 		R.checkSymm();
 		R.countSymm();
-		System.out.println("fill2(1, 2); checkSymm; countSymm");
+		System.out.println("fill2(1, 2); checkSymm; countSymm, countDiffCols, maxNumberEqualCols");
 		R.MatrixOut();
 		System.out.println(R.checkSymm());
 		System.out.println(R.countSymm());
+		System.out.println(R.countDiffCols());
+		System.out.println(R.maxNumberEqualCols());
 		System.out.println();
 		
 		
