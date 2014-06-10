@@ -2,7 +2,7 @@ package org.deh.main;
 
 
 
-//Debora Oliveira - Pascal Wetzel - Gruppe 3 - 7. �bung
+
 
 public class MyMatrix {
 
