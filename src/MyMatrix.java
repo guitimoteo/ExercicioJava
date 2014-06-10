@@ -32,17 +32,12 @@ public class MyMatrix{
 
 	
 	public MyMatrix transpose(){
-		int i = m;// ou M[0].lenght();
-		int j = n;// ou M.lenght();
-		MyMatrix T = new MyMatrix (i, j); 
-		for (int a=0;i<n; a++){
-//			T.M[i] = M[j]; // se a matriz é bidimensional, não tem como pegar só uma dimensão e tratar 
-//			O que vc pode fazer é colocar a matriz inteira, como abaixo
-			for (int b=0;b<n; b++){
-				T.M[b][a] = M[a][b];
+		MyMatrix T = new MyMatrix(n,m);//O inverso da matriz M[m][n] é M[n][m] não?
+		for(int x = 0;x<m;x++)
+			for (int i=0; i<n; i++){
+				T.M[i][x] = M[x][i];
 			}
-		}
-		return T;//Retornando a matriz 'T'
+		return T;
 	}
 	
 	
@@ -193,8 +188,8 @@ public class MyMatrix{
 		System.out.println();
 		
 		System.out.println("MyMatrix(2,3)");
-		MyMatrix Q = new MyMatrix(2,3);
-		System.out.println("Q.fill2(2,3)");
+		MyMatrix Q = new MyMatrix(2,5);
+		System.out.println("Q.fill2(2,5)");
 		Q.fill2(2,3);
 		Q.matrixOut();
 		
