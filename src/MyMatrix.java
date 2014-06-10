@@ -105,8 +105,8 @@ public class MyMatrix{
 	public void fill2(int k, int l){
 		int fillVal = k;
 		int c = 0;
-		for(int x = 0;x<n;x++)
-		for (int i=0;i<m;i++){
+		for(int x = 0;x<m;x++)
+		for (int i=0;i<n;i++){
 			M[x][i] = fillVal;
 			c++;
 			if(c <= l) fillVal++;  // Fuellwert erhoehen
@@ -167,9 +167,9 @@ public class MyMatrix{
 	// {1,2,3,4} -> {4,3,2,1} : Acredito que é a tranposição
 	public MyMatrix reverse(){
 		MyMatrix T = new MyMatrix(n,m);//O inverso da matriz M[m][n] é M[n][m] não?
-		for(int x = 0;x<n;x++)
-			for (int i=0; i<m; i++){
-				T.M[x][i] = M[i][x];
+		for(int x = 0;x<m;x++)
+			for (int i=0; i<n; i++){
+				T.M[i][x] = M[x][i];
 			}
 		return T;
 	}
@@ -192,10 +192,10 @@ public class MyMatrix{
 		
 		System.out.println();
 		
-		System.out.println("MyMatrix(2)");
-		MyMatrix Q = new MyMatrix(2);
-		System.out.println("Q.fill2(0,0)");
-		Q.fill2(0,0);
+		System.out.println("MyMatrix(2,3)");
+		MyMatrix Q = new MyMatrix(2,3);
+		System.out.println("Q.fill2(2,3)");
+		Q.fill2(2,3);
 		Q.matrixOut();
 		
 		MyMatrix matrixTransp = Q.reverse();
